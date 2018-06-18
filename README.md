@@ -1,6 +1,6 @@
 # 2018 Next generation Warehouse Management System
 - 통합UI관리 [![Build Status](https://travis-ci.com/cain0605/nwms.presentation.svg?branch=master)](https://travis-ci.com/cain0605/nwms.presentation)
-https://github.com/cain0605/nwms.presentation
+(https://github.com/cain0605/nwms.presentation)
 
 - 기준정보시스템 : 시스템의 기준정보를 관리하는 시스템 [![Build Status](https://travis-ci.com/cain0605/nwms.standard.svg?branch=master)](https://travis-ci.com/cain0605/nwms.standard)
 https://github.com/cain0605/nwms.standard
