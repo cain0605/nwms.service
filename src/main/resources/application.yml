@@ -1,0 +1,25 @@
+# ===================================================================
+# Spring boot config
+# ===================================================================
+spring:
+  http: # HTTP encoding (HttpEncodingProperties)
+    encoding:
+      charset: UTF-8 # the encoding of HTTP requests/responses
+      enabled: true # enable http encoding support
+      force: true # force the configured encoding
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+# ===================================================================
+# Server config - nwms.standard 기준정보서버
+# ===================================================================
+server:
+  error:
+    whitelabel:
+      enabled: false   
+  servlet:
+    context-path: /
+    session:
+      timeout: 1800
+  port: 8100
