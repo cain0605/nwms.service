@@ -80,15 +80,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		<!-- Coveralls -->
-<plugin>
-    <groupId>org.eluder.coveralls</groupId>
-    <artifactId>coveralls-maven-plugin</artifactId>
-    <version>4.3.0</version>
-    <configuration>
-        <repoToken>XS5paxGUQIoFFLIbJThGcK5OvjS6x3ly6</repoToken>
-    </configuration>
-</plugin>
+			<!-- Coveralls -->
+			<plugin>
+			    <groupId>org.eluder.coveralls</groupId>
+			    <artifactId>coveralls-maven-plugin</artifactId>
+			    <version>4.3.0</version>
+			    <configuration>
+			        <repoToken>XS5paxGUQIoFFLIbJThGcK5OvjS6x3ly6</repoToken>
+			    </configuration>
+			</plugin>
 		</plugins>
 
 	</build>
