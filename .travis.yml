@@ -28,8 +28,8 @@ script:
   - echo "## PROJECT_NAME - ${PRJ_NAME}"
   - echo "## PROJECT_VERSION - ${PRJ_VERSION}"
 
-  #- PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
-  - PRJ_JAR=standard-1.0.0.jar
+  - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
+  #- PRJ_JAR=standard-1.0.0.jar
 
   # DOCKER BUILD
   - docker build -t nwms.standard:latest --build-arg JAR_FILE=target/${PRJ_JAR} ./
