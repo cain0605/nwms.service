@@ -24,12 +24,13 @@ script:
 
   # PUSH TO DOCKER HUB
   - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-  - docker tag nwms.standard:latest cain0605/nwms.standard:latest
-  - docker tag nwms.standard:latest cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
+  #- docker tag nwms.standard:latest cain0605/nwms.standard:latest
+  #- docker tag nwms.standard:latest cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
 
-  - docker push cain0605/nwms.standard:latest
-  - docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
-
+  #- docker push cain0605/nwms.standard:latest
+  #- docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
+  - docker push cain0605/nwms.standard
+  
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
