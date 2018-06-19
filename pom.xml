@@ -80,6 +80,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
 			<!-- Coveralls -->
 			<plugin>
 			    <groupId>org.eluder.coveralls</groupId>
