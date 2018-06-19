@@ -20,9 +20,9 @@ script:
   - ./mvnw package -B
 
 # GET NAME
-  - PRJ_GROUP=$(mvn project.artifactId -q | grep "groupId:" | awk '{print $2}')
+  - PRJ_GROUP=$(mvn project.groupId)
   - PRJ_NAME=$(mvn project.artifactId)
-  - PRJ_VERSION=$(project.artifactId)
+  - PRJ_VERSION=$(mvn project.version)
 
   - echo "## PROJECT_GROUP - ${PRJ_GROUP}"
   - echo "## PROJECT_NAME - ${PRJ_NAME}"
