@@ -2,7 +2,7 @@
 - 통합UI관리 [![Build Status](https://travis-ci.com/cain0605/nwms.presentation.svg?branch=master)](https://travis-ci.com/cain0605/nwms.presentation)
   - https://github.com/cain0605/nwms.presentation
 
-- 기준정보시스템 : 시스템의 기준정보를 관리하는 시스템 [![Build Status](https://travis-ci.com/cain0605/nwms.standard.svg?branch=master)](https://travis-ci.com/cain0605/nwms.standard)
+- 기준정보시스템 : 시스템의 기준정보를 관리하는 시스템 [![Build Status](https://travis-ci.com/cain0605/nwms.standard.svg?branch=master)](https://travis-ci.com/cain0605/nwms.standard) [![Coverage Status](https://coveralls.io/repos/github/cain0605/nwms.standard/badge.svg?branch=master)](https://coveralls.io/github/cain0605/nwms.standard?branch=master)
   - https://github.com/cain0605/nwms.standard
 
 - 입고관리시스템 : 입고전표를 시작으로 입고프로세스를 관리하는 시스탬 [![Build Status](https://travis-ci.com/cain0605/nwms.warehousing.svg?branch=master)](https://travis-ci.com/cain0605/nwms.warehousing)
