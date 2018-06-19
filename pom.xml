@@ -80,7 +80,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- Coveralls -->
+			<!-- Coveralls
 			<plugin>
 			    <groupId>org.eluder.coveralls</groupId>
 			    <artifactId>coveralls-maven-plugin</artifactId>
@@ -88,8 +88,20 @@
 			    <configuration>
 			        <repoToken>XS5paxGUQIoFFLIbJThGcK5OvjS6x3ly6</repoToken>
 			    </configuration>
+			</plugin-->
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>0.7.6.201602180812</version>
+			    <executions>
+			        <execution>
+			            <id>prepare-agent</id>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			        </execution>
+			    </executions>
 			</plugin>
 		</plugins>
-
 	</build>
 </project>
