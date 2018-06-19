@@ -21,14 +21,14 @@ script:
 
 # GET NAME
   - PRJ_GROUP=$(maven properties -q | grep "groupId:" | awk '{print $2}')
-  - PRJ_NAME=$(maven properties -q | grep "name:" | awk '{print $2}')
+  - PRJ_NAME=${project.name}
   - PRJ_VERSION=$(maven properties -q | grep "version:" | awk '{print $2}')
 
   - echo "## PROJECT_GROUP - ${PRJ_GROUP}"
   - echo "## PROJECT_NAME - ${PRJ_NAME}"
   - echo "## PROJECT_VERSION - ${PRJ_VERSION}"
 
-  - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
+  - PRJ_JAR=nwms.standard.jar
 
   # DOCKER BUILD
   - docker build -t nwms.standard:latest --build-arg JAR_FILE=build/libs/${PRJ_JAR} ./
