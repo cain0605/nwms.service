@@ -13,3 +13,8 @@ script: "./mvnw test -B"
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
+  
+notifications:
+  slack:
+    rooms:
+      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management  
