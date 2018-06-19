@@ -1,15 +1,34 @@
 language: java
-jdk:
-  - openjdk8
+
+jdk: openjdk8
+
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
+
+services: docker
 
 branches:
-  only:
-    - master
-    
+  only: master
+
 before_install:
   - chmod +x mvnw
   
-script: "./mvnw test -B"
+script:
+  # BUILD
+  - ./mvnw test -B
+
+  # DOCKER BUILD
+  - docker build -t nwms.standard:latest --build-arg JAR_FILE=build/libs/nwms.standard.jar ./
+
+  # PUSH TO DOCKER HUB
+  - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+  - docker tag nwms.standard:latest cain0605/nwms.standard:latest
+  - docker tag nwms.standard:latest cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
+
+  - docker push cain0605/nwms.standard:latest
+  - docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
@@ -17,4 +36,4 @@ after_success:
 notifications:
   slack:
     rooms:
-      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management  
+      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management
