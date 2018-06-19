@@ -32,7 +32,7 @@ script:
   - PRJ_JAR=standard-1.0.0.jar
 
   # DOCKER BUILD
-  - docker build -t nwms.standard:latest --build-arg JAR_FILE=build/libs/${PRJ_JAR} ./
+  - docker build -t nwms.standard:latest --build-arg JAR_FILE=target/${PRJ_JAR} ./
 
   # PUSH TO DOCKER HUB
   - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
