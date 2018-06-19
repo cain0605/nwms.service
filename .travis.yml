@@ -17,7 +17,7 @@ before_install:
   
 script:
   # BUILD
-  - ./mvnw test -B
+  - ./mvnw package -B
 
 # GET NAME
   - PRJ_GROUP=$(mvn properties -q | grep "groupId:" | awk '{print $2}')
