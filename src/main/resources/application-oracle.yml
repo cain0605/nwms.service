@@ -1,0 +1,16 @@
+# ===================================================================
+# Spring boot database config
+# ===================================================================
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//woongs.cy0wcco5br8t.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: wms
+    password: 19790805wms
+    driverClassName: oracle.jdbc.driver.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
