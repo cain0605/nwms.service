@@ -63,6 +63,7 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: cain0605/nwms.standard
