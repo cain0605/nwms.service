@@ -49,3 +49,16 @@ notifications:
   slack:
     rooms:
       - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management
+      
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: nwms-deploy
+    region: us-west-2
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: cain0605/nwms.standard
+      branch: master
