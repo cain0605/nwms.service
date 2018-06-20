@@ -49,7 +49,12 @@ notifications:
   slack:
     rooms:
       - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management
-      
+
+before_deploy:
+  - zip -r nwms.standard *
+  - mkdir -p deploy
+  - mv nwms.standard.zip deploy/nwms.standard.zip
+  
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
