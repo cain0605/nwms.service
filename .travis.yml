@@ -45,11 +45,6 @@ script:
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
-notifications:
-  slack:
-    rooms:
-      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management
-
 before_deploy:
   - zip -r nwms.standard.zip *
   - mkdir -p deploy
@@ -81,3 +76,8 @@ deploy:
     on:
       repo: cain0605/nwms.standard
       branch: master
+      
+notifications:
+  slack:
+    rooms:
+      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management
