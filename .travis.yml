@@ -42,6 +42,12 @@ script:
   - docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
   - docker push cain0605/nwms.standard
 
+  - TARGET_DEPLOY_TCP=${AWS_DOCKER_INFO}
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker pull cain0605/nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker stop nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker rm nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker run --name nwms.standard -d -p 8100:8100 cain0605/nwms.standard
+
   # 배포용 jar copy
   - mv target/${PRJ_JAR} ./${PRJ_JAR}
   
