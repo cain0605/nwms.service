@@ -43,50 +43,17 @@ script:
   - docker push cain0605/nwms.standard
 
   - TARGET_DEPLOY_TCP=${AWS_DOCKER_INFO}
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker pull cain0605/nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker stop nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker rm nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} sudo docker run --name nwms.standard -d -p 8100:8100 cain0605/nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker pull cain0605/nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker stop nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker rm nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker run --name nwms.standard -d -p 8100:8100 cain0605/nwms.standard
 
   # 배포용 jar copy
   - mv target/${PRJ_JAR} ./${PRJ_JAR}
   
 after_success:
   - mvn clean test jacoco:report coveralls:report
-  
-before_deploy:
-  - zip -r nwms.standard.zip *
-  - mkdir -p deploy
-  - mv nwms.standard.zip deploy/nwms.standard.zip
-  
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: nwms-deploy
-    region: us-west-2
-    skip_cleanup: true
-    acl: public_read
-    local_dir: deploy
-    wait-until-deployed: true
-    on:
-      repo: cain0605/nwms.standard
-      branch: master
 
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: nwms-deploy
-    key: nwms.standard.zip # 빌드 파일을 압축해서 전달
-    bundle_type: zip
-    application: nwms.standard # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
-    deployment_group: com.nwms # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
-    region: us-west-2
-    wait-until-deployed: true
-    on:
-      repo: cain0605/nwms.standard
-      branch: master
-      
 notifications:
   slack:
     rooms:
