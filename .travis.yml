@@ -43,14 +43,15 @@ script:
   - docker push cain0605/nwms.standard
 
   # 배포용 jar copy
-  - mkdir -p jar
-  - mv target/${PRJ_JAR} jar/${PRJ_JAR}
-  - ls -al jar
+  - mv target/${PRJ_JAR} ./${PRJ_JAR}
   
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
 before_deploy:
+  - zip -r nwms.standard.zip *
+  - mkdir -p deploy
+  - mv nwms.standard.zip deploy/nwms.standard.zip
   
 deploy:
   - provider: s3
@@ -60,7 +61,7 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     acl: public_read
-    local_dir: jar
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: cain0605/nwms.standard
@@ -70,8 +71,8 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: nwms-deploy
-    key: ${PRJ_JAR} # 빌드 파일을 압축해서 전달
-    bundle_type: jar
+    key: nwms.standard.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip
     application: nwms.standard # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: com.nwms # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: us-west-2
