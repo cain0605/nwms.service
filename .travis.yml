@@ -44,12 +44,12 @@ script:
 
   - mkdir -p jar
   - mv target/${PRJ_JAR} jar/${PRJ_JAR}
+  - ls -al jar
   
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
 before_deploy:
-  - ls -al jar
   - zip -r nwms.standard.zip *
   - mkdir -p deploy
   - mv nwms.standard.zip deploy/nwms.standard.zip
