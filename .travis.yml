@@ -46,7 +46,7 @@ after_success:
   - mvn clean test jacoco:report coveralls:report
   
 before_deploy:
-  - ls -al
+  - ls -al target
   - zip -r nwms.standard.zip *
   - mkdir -p deploy
   - mv nwms.standard.zip deploy/nwms.standard.zip
