@@ -41,12 +41,15 @@ script:
   - docker push cain0605/nwms.standard:latest
   - docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
   - docker push cain0605/nwms.standard
+
+  - mkdir -p jar
+  - mv target/${PRJ_JAR} jar/${PRJ_JAR}
   
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
 before_deploy:
-  - ls -al target
+  - ls -al jar
   - zip -r nwms.standard.zip *
   - mkdir -p deploy
   - mv nwms.standard.zip deploy/nwms.standard.zip
@@ -59,7 +62,7 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy
+    local_dir: jar
     wait-until-deployed: true
     on:
       repo: cain0605/nwms.standard
