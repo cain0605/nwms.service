@@ -47,9 +47,6 @@ script:
   - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker stop nwms.standard
   - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker rm nwms.standard
   - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker run --name nwms.standard -d -p 8100:8100 cain0605/nwms.standard
-
-  # 배포용 jar copy
-  - mv target/${PRJ_JAR} ./${PRJ_JAR}
   
 after_success:
   - mvn clean test jacoco:report coveralls:report
