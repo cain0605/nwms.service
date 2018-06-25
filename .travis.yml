@@ -31,21 +31,21 @@ script:
   - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
 
   # DOCKER BUILD
-  - docker build -t nwms.standard:latest --build-arg JAR_FILE=target/${PRJ_JAR} ./
+  - docker build -t nwms.service:latest --build-arg JAR_FILE=target/${PRJ_JAR} ./
 
   # PUSH TO DOCKER HUB
   - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-  - docker tag nwms.standard:latest cain0605/nwms.standard:latest
-  - docker tag nwms.standard:latest cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
+  - docker tag nwms.service:latest cain0605/nwms.service:latest
+  - docker tag nwms.service:latest cain0605/nwms.service:${TRAVIS_JOB_NUMBER}
 
-  - docker push cain0605/nwms.standard:latest
-  - docker push cain0605/nwms.standard:${TRAVIS_JOB_NUMBER}
-  - docker push cain0605/nwms.standard
+  - docker push cain0605/nwms.service:latest
+  - docker push cain0605/nwms.service:${TRAVIS_JOB_NUMBER}
+  - docker push cain0605/nwms.service
 
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker pull cain0605/nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker stop nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker rm nwms.standard
-  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker run --name nwms.standard -d -p 8100:8100 cain0605/nwms.standard
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker pull cain0605/nwms.service
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker stop nwms.service
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker rm nwms.service
+  - DOCKER_HOST=${TARGET_DEPLOY_TCP} docker run --name nwms.service -d -p 8100:8100 cain0605/nwms.service
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
