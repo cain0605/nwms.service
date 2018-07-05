@@ -8,7 +8,7 @@
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>nwms.standard</name>
+	<name>nwms.stnd</name>
 	<description>2018 Next generation Warehouse Management System - Standard</description>
 
 	<parent>

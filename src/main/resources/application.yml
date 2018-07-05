@@ -12,7 +12,7 @@ spring:
       FAIL_ON_EMPTY_BEANS: false
 
 # ===================================================================
-# Server config - nwms.standard 기준정보서버
+# Server config - nwms.stnd 기준정보서버
 # ===================================================================
 server:
   error:
