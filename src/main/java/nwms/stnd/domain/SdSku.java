@@ -53,11 +53,11 @@ public class SdSku {
 
 	//===============================================================================
 	
-	public SdSkuPk getId() {
+	public SdSkuPk getPk() {
 		return pk;
 	}
 
-	public void setId(SdSkuPk pk) {
+	public void setPk(SdSkuPk pk) {
 		this.pk = pk;
 	}
 
