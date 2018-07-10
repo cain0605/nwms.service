@@ -14,7 +14,7 @@ import nwms.stnd.domain.pk.SdFlowStgDtPk;
 @Table(name = "SD_FLOWSTGDT")
 public class SdFlowStgDt {
 
-	@EmbeddedId private SdFlowStgDtPk id;
+	@EmbeddedId private SdFlowStgDtPk pk;
 	
 	@Column(nullable=false, columnDefinition="varchar2(100)")
 	private	String flownm;				//흐름명
@@ -55,11 +55,11 @@ public class SdFlowStgDt {
 	
 	//===============================================================================
 
-	public SdFlowStgDtPk getId() {
-		return id;
+	public SdFlowStgDtPk getPk() {
+		return pk;
 	}
-	public void setId(SdFlowStgDtPk id) {
-		this.id = id;
+	public void setPk(SdFlowStgDtPk pk) {
+		this.pk = pk;
 	}
 	public String getFlownm() {
 		return flownm;

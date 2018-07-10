@@ -42,7 +42,7 @@ public class SdLocRestController {
 		return result;
 	}
 
-	@GetMapping("/stnd/zone/{zone}/dc/{dc}/biz/{biz}")
+	@GetMapping("/stnd/loc/zone/{zone}/dc/{dc}/biz/{biz}")
 	public List<SdLoc> findByZoneAndDcAndBiz(@PathVariable String zone, @PathVariable String dc, @PathVariable String biz) {
 
 		List<SdLoc> result = sdLocDao.findByZoneAndDcAndBiz(zone, dc, biz);

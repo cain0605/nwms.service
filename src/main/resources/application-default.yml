@@ -8,7 +8,7 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
-    data: classpath:biz.sql,classpath:cd.sql,classpath:cust.sql,classpath:loc.sql,classpath:sku.sql
+    data: classpath:biz.sql,classpath:cd.sql,classpath:cust.sql,classpath:loc.sql,classpath:sku.sql,classpath:rcpt.sql
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:

@@ -2,25 +2,24 @@ package nwms.stnd.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
-
-import nwms.stnd.domain.pk.SdClientPk;
 
 @Entity
 @Table(name = "SD_CLIENT")
+@IdClass(nwms.stnd.domain.pk.SdClientPk.class)
 public class SdClient {
 
-	@EmbeddedId private SdClientPk pk;
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String client;				//하주
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
-	private	SdBiz biz;					//사업자
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String biz;					//사업자
 	
 	@Column(nullable=false, columnDefinition="varchar2(100)")
 	private	String clientnm;			//하주명
@@ -58,19 +57,19 @@ public class SdClient {
 	
 	//===============================================================================
 
-	public SdClientPk getPk() {
-		return pk;
+	public String getClient() {
+		return client;
 	}
 
-	public void setPk(SdClientPk pk) {
-		this.pk = pk;
+	public void setClient(String client) {
+		this.client = client;
 	}
 
-	public SdBiz getBiz() {
+	public String getBiz() {
 		return biz;
 	}
 
-	public void setBiz(SdBiz biz) {
+	public void setBiz(String biz) {
 		this.biz = biz;
 	}
 

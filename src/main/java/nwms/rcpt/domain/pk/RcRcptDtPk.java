@@ -2,25 +2,17 @@ package nwms.rcpt.domain.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class RcRcptDtPk implements Serializable {
 
 	private static final long serialVersionUID = 5889393369484409580L;
-	
-	@Column(nullable=false, columnDefinition="varchar2(20)")
+
 	private	String rcptno;			//입고번호
-	
-	@Column(nullable=false, columnDefinition="number(5) default 0")
 	private	int	rcptsn;				//입고순번
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String dc;				//물류센터
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
-	private	String biz;			//사업자
+	private	String biz;				//사업자
 
 	//===============================================================================
 	

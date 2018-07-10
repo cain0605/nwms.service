@@ -24,7 +24,7 @@ public class SdArea {
          @JoinColumn(name = "dc", referencedColumnName="dc", insertable=false, updatable=false),
          @JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
 	})
-	private	SdDc dc;					//창고
+	private	SdDc sddc;					//창고
 	
 	@Column(nullable=false, columnDefinition="varchar2(1000)")
 	private	String areanm;				//지역명
@@ -49,12 +49,12 @@ public class SdArea {
 		this.pk = pk;
 	}
 
-	public SdDc getDc() {
-		return dc;
+	public SdDc getSddc() {
+		return sddc;
 	}
 
-	public void setDc(SdDc dc) {
-		this.dc = dc;
+	public void setSddc(SdDc sddc) {
+		this.sddc = sddc;
 	}
 
 	public String getAreanm() {

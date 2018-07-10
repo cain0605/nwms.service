@@ -14,7 +14,7 @@ public class SdAreaPk implements Serializable {
 	private	String area;		//지역
 
 	@Column(nullable=false, columnDefinition="varchar2(40)")
-	private	String dc;			//사업자
+	private	String dc;			//창고
 	
 	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String biz;			//사업자

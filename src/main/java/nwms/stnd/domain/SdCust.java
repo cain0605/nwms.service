@@ -2,29 +2,33 @@ package nwms.stnd.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-import nwms.stnd.domain.pk.SdCustPk;
 
 @Entity
 @Table(name = "SD_CUST")
+@IdClass(nwms.stnd.domain.pk.SdCustPk.class)
 public class SdCust {
 
-	@EmbeddedId private SdCustPk pk;
+	@Id	
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String cust;			//거래처
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumns({
-         @JoinColumn(name = "client", referencedColumnName="client", insertable=false, updatable=false),
-         @JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
-	})
-	private	SdClient client;			//하주
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(10)")
+	private	String custtp;			//거래처구분
+
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String client;			//하주
+	
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String biz;	//사업자
 	
 	@Column(nullable=false, columnDefinition="varchar2(400)")
 	private	String custno;				//거래처번호
@@ -65,20 +69,36 @@ public class SdCust {
 	
 	//===============================================================================
 
-	public SdCustPk getPk() {
-		return pk;
+	public String getCust() {
+		return cust;
 	}
 
-	public void setPk(SdCustPk pk) {
-		this.pk = pk;
+	public void setCust(String cust) {
+		this.cust = cust;
 	}
 
-	public SdClient getClient() {
+	public String getCusttp() {
+		return custtp;
+	}
+
+	public void setCusttp(String custtp) {
+		this.custtp = custtp;
+	}
+
+	public String getClient() {
 		return client;
 	}
 
-	public void setClient(SdClient client) {
+	public void setClient(String client) {
 		this.client = client;
+	}
+
+	public String getBiz() {
+		return biz;
+	}
+
+	public void setBiz(String biz) {
+		this.biz = biz;
 	}
 
 	public String getCustno() {

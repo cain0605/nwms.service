@@ -19,7 +19,7 @@ import nwms.stnd.domain.pk.SdFlowStgPk;
 @Table(name = "SD_FLOWSTG")
 public class SdFlowStg {
 
-	@EmbeddedId private SdFlowStgPk id;
+	@EmbeddedId private SdFlowStgPk pk;
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumns({
@@ -28,7 +28,7 @@ public class SdFlowStg {
          @JoinColumn(name = "dc", referencedColumnName="dc"),
          @JoinColumn(name = "biz", referencedColumnName="biz")         
 	})
-	private	List<SdFlowStgDt> flowstgdt;			//하주
+	private	List<SdFlowStgDt> sdflowstgdt;			//하주
 	
 	@Column(nullable=false, columnDefinition="varchar2(100)")
 	private	String stgnm;				//전략명
@@ -54,63 +54,82 @@ public class SdFlowStg {
 	
 	//===============================================================================
 
-	public SdFlowStgPk getId() {
-		return id;
+	public SdFlowStgPk getPk() {
+		return pk;
 	}
-	public void setId(SdFlowStgPk id) {
-		this.id = id;
+
+	public void setPk(SdFlowStgPk pk) {
+		this.pk = pk;
 	}
-	public List<SdFlowStgDt> getFlowstgdt() {
-		return flowstgdt;
+
+	public List<SdFlowStgDt> getSdflowstgdt() {
+		return sdflowstgdt;
 	}
-	public void setFlowstgdt(List<SdFlowStgDt> flowstgdt) {
-		this.flowstgdt = flowstgdt;
+
+	public void setSdflowstgdt(List<SdFlowStgDt> sdflowstgdt) {
+		this.sdflowstgdt = sdflowstgdt;
 	}
+
 	public String getStgnm() {
 		return stgnm;
 	}
+
 	public void setStgnm(String stgnm) {
 		this.stgnm = stgnm;
 	}
+
 	public String getStgdesc() {
 		return stgdesc;
 	}
+
 	public void setStgdesc(String stgdesc) {
 		this.stgdesc = stgdesc;
 	}
+
 	public String getDutyty() {
 		return dutyty;
 	}
+
 	public void setDutyty(String dutyty) {
 		this.dutyty = dutyty;
 	}
+
 	public String getDutycd() {
 		return dutycd;
 	}
+
 	public void setDutycd(String dutycd) {
 		this.dutycd = dutycd;
 	}
+
 	public Date getRgsde() {
 		return rgsde;
 	}
+
 	public void setRgsde(Date rgsde) {
 		this.rgsde = rgsde;
 	}
+
 	public String getRgsusr() {
 		return rgsusr;
 	}
+
 	public void setRgsusr(String rgsusr) {
 		this.rgsusr = rgsusr;
 	}
+
 	public Date getUpdde() {
 		return updde;
 	}
+
 	public void setUpdde(Date updde) {
 		this.updde = updde;
 	}
+
 	public String getUpdusr() {
 		return updusr;
 	}
+
 	public void setUpdusr(String updusr) {
 		this.updusr = updusr;
 	}

@@ -2,25 +2,24 @@ package nwms.stnd.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
-
-import nwms.stnd.domain.pk.SdDcPk;
 
 @Entity
 @Table(name = "SD_DC")
+@IdClass(nwms.stnd.domain.pk.SdDcPk.class)
 public class SdDc {
 
-	@EmbeddedId private SdDcPk pk;
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String dc;					//물류센터
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
-	private	SdBiz biz;					//사업자
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String biz;					//사업자
 	
 	@Column(nullable=false, columnDefinition="varchar2(100)")
 	private	String dcnm;				//물류센터명
@@ -55,22 +54,22 @@ public class SdDc {
 	
 	@Column(columnDefinition="varchar2(15)")
 	private	String updusr;				//수정자
-	
+
 	//===============================================================================
 
-	public SdDcPk getPk() {
-		return pk;
+	public String getDc() {
+		return dc;
 	}
 
-	public void setPk(SdDcPk pk) {
-		this.pk = pk;
+	public void setDc(String dc) {
+		this.dc = dc;
 	}
 
-	public SdBiz getBiz() {
+	public String getBiz() {
 		return biz;
 	}
 
-	public void setBiz(SdBiz biz) {
+	public void setBiz(String biz) {
 		this.biz = biz;
 	}
 

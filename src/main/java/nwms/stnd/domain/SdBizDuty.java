@@ -20,7 +20,7 @@ public class SdBizDuty {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
-	private	SdBiz biz;					//사업자
+	private	SdBiz sdbiz;					//사업자
 	
 	@Column(nullable=false, columnDefinition="varchar2(20)")
 	private	String dutynm;				//업무명
@@ -50,12 +50,12 @@ public class SdBizDuty {
 		this.pk = pk;
 	}
 
-	public SdBiz getBiz() {
-		return biz;
+	public SdBiz getSdbiz() {
+		return sdbiz;
 	}
 
-	public void setBiz(SdBiz biz) {
-		this.biz = biz;
+	public void setSdbiz(SdBiz sdbiz) {
+		this.sdbiz = sdbiz;
 	}
 
 	public String getDutynm() {

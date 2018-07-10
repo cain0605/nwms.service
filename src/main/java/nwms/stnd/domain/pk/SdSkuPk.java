@@ -2,7 +2,6 @@ package nwms.stnd.domain.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -10,13 +9,8 @@ public class SdSkuPk implements Serializable {
 
 	private static final long serialVersionUID = -6317384822856155916L;
 
-	@Column(nullable=false, columnDefinition="varchar2(30)")
 	private	String sku;			//품목
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String client;		//하주
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String biz;			//사업자
 
 	//===============================================================================

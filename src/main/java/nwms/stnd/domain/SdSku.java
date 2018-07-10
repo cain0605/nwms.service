@@ -2,29 +2,28 @@ package nwms.stnd.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
-
-import nwms.stnd.domain.pk.SdSkuPk;
 
 @Entity
 @Table(name = "SD_SKU")
+@IdClass(nwms.stnd.domain.pk.SdSkuPk.class)
 public class SdSku {
 
-	@EmbeddedId private SdSkuPk pk;
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(30)")
+	private	String sku;					//품목
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumns({
-         @JoinColumn(name = "client", referencedColumnName="client", insertable=false, updatable=false),
-         @JoinColumn(name = "biz", referencedColumnName="biz", insertable=false, updatable=false)
-	})
-	private	SdClient client;			//하주
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String client;				//하주
+
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String biz;					//사업자
 
 	@Column(nullable=false, columnDefinition="varchar2(400)")
 	private	String skunm;				//품목명
@@ -52,21 +51,29 @@ public class SdSku {
 	private	String updusr;				//수정자
 
 	//===============================================================================
-	
-	public SdSkuPk getPk() {
-		return pk;
+
+	public String getSku() {
+		return sku;
 	}
 
-	public void setPk(SdSkuPk pk) {
-		this.pk = pk;
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
 
-	public SdClient getClient() {
+	public String getClient() {
 		return client;
 	}
 
-	public void setClient(SdClient client) {
+	public void setClient(String client) {
 		this.client = client;
+	}
+
+	public String getBiz() {
+		return biz;
+	}
+
+	public void setBiz(String biz) {
+		this.biz = biz;
 	}
 
 	public String getSkunm() {

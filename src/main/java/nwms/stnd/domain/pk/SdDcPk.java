@@ -2,7 +2,6 @@ package nwms.stnd.domain.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -10,14 +9,27 @@ public class SdDcPk implements Serializable {
 
 	private static final long serialVersionUID = 7192103333294969990L;
 
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String dc;			//물류센터
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String biz;			//사업자
 
 	//===============================================================================
 
+	public String getDc() {
+		return dc;
+	}
+
+	public void setDc(String dc) {
+		this.dc = dc;
+	}
+
+	public String getBiz() {
+		return biz;
+	}
+
+	public void setBiz(String biz) {
+		this.biz = biz;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -47,21 +59,5 @@ public class SdDcPk implements Serializable {
 		} else if (!dc.equals(other.dc))
 			return false;
 		return true;
-	}
-
-	public String getDc() {
-		return dc;
-	}
-
-	public void setDc(String dc) {
-		this.dc = dc;
-	}
-
-	public String getBiz() {
-		return biz;
-	}
-
-	public void setBiz(String biz) {
-		this.biz = biz;
 	}
 }

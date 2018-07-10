@@ -27,7 +27,7 @@ public class SdZoneRestController {
 		return resultList;
 	}
 
-	@GetMapping("/stnd/area/{area}/dc/{dc}/biz/{biz}")
+	@GetMapping("/stnd/zone/area/{area}/dc/{dc}/biz/{biz}")
 	public List<SdZone> findByAreaAndDcAndBiz(@PathVariable String area, @PathVariable String dc, @PathVariable String biz) {
 
 		List<SdZone> result = sdZoneDao.findByAreaAndDcAndBiz(area, dc, biz);

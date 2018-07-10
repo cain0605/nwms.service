@@ -29,7 +29,7 @@ public class SdCustRestController {
 		return custList;
 	}
 	
-	@GetMapping("/stnd/cust/{cust}/cust/{cust}/client/{client}/biz/{biz}")
+	@GetMapping("/stnd/cust/{cust}/client/{client}/biz/{biz}")
 	public Optional<SdCust> findById(@PathVariable String cust, @PathVariable String custtp,@PathVariable String client, @PathVariable String biz) {
 		
 		SdCustPk pk = new SdCustPk();

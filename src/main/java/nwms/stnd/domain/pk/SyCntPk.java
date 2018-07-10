@@ -2,7 +2,6 @@ package nwms.stnd.domain.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -10,25 +9,12 @@ public class SyCntPk implements Serializable {
 
 	private static final long serialVersionUID = 4840351890650434067L;
 
-	@Column(nullable=false, columnDefinition="char(8)")
 	private	String cntde = "99991231";	//채번일자
-	
-	@Column(nullable=false, columnDefinition="varchar2(20)")
-	private	String cnttp1 = "None";	//채번구분1
-	
-	@Column(nullable=false, columnDefinition="varchar2(20)")
-	private	String cnttp2 = "None";	//채번구분2
-	
-	@Column(nullable=false, columnDefinition="varchar2(20)")
+	private	String cnttp1 = "None";		//채번구분1
+	private	String cnttp2 = "None";		//채번구분2
 	private	String cnttp3 = "*";		//채번구분3
-	
-	@Column(nullable=false, columnDefinition="varchar2(40)")
-	private	String biz;				//사업자
-	
-	@Column(nullable=false, columnDefinition="varchar2(40)") 
+	private	String biz;					//사업자
 	private	String dc = "*";			//물류센터
-	
-	@Column(nullable=false, columnDefinition="varchar2(40)") 
 	private	String client = "*";		//하주
 
 	//===============================================================================	
