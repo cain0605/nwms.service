@@ -3,18 +3,35 @@ package nwms.oder.domain;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
-
-import nwms.oder.domain.pk.OdOderAsgnPk;
 
 @Entity
 @Table(name = "OD_ODERASGN")
+@IdClass(nwms.oder.domain.pk.OdOderAsgnPk.class)
 public class OdOderAsgn {
 
-	@EmbeddedId private OdOderAsgnPk id;
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(20)")
+	private	String oderno;			//출고번호
+
+	@Id
+	@Column(nullable=false, columnDefinition="number(5) default 0")
+	private	int	odersn;				//출고순번
+
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(20)")
+	private	String asgnno;			//배정번호
+
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String dc;				//물류센터
+
+	@Id
+	@Column(nullable=false, columnDefinition="varchar2(40)")
+	private	String biz;	
 	
 	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String client;	//하주
@@ -73,132 +90,205 @@ public class OdOderAsgn {
 	
 	@Column(columnDefinition="varchar2(15)")
 	private	String updusr;				//수정자
-	
+
 	//===============================================================================
-	
-	public OdOderAsgnPk getId() {
-		return id;
+
+	public String getOderno() {
+		return oderno;
 	}
-	public void setId(OdOderAsgnPk id) {
-		this.id = id;
+
+	public void setOderno(String oderno) {
+		this.oderno = oderno;
 	}
+
+	public int getOdersn() {
+		return odersn;
+	}
+
+	public void setOdersn(int odersn) {
+		this.odersn = odersn;
+	}
+
+	public String getAsgnno() {
+		return asgnno;
+	}
+
+	public void setAsgnno(String asgnno) {
+		this.asgnno = asgnno;
+	}
+
+	public String getDc() {
+		return dc;
+	}
+
+	public void setDc(String dc) {
+		this.dc = dc;
+	}
+
+	public String getBiz() {
+		return biz;
+	}
+
+	public void setBiz(String biz) {
+		this.biz = biz;
+	}
+
 	public String getClient() {
 		return client;
 	}
+
 	public void setClient(String client) {
 		this.client = client;
 	}
+
 	public String getSku() {
 		return sku;
 	}
+
 	public void setSku(String sku) {
 		this.sku = sku;
 	}
+
 	public String getFrloc() {
 		return frloc;
 	}
+
 	public void setFrloc(String frloc) {
 		this.frloc = frloc;
 	}
+
 	public String getFrlot() {
 		return frlot;
 	}
+
 	public void setFrlot(String frlot) {
 		this.frlot = frlot;
 	}
+
 	public String getFrpltid() {
 		return frpltid;
 	}
+
 	public void setFrpltid(String frpltid) {
 		this.frpltid = frpltid;
 	}
+
 	public String getFrcaseid() {
 		return frcaseid;
 	}
+
 	public void setFrcaseid(String frcaseid) {
 		this.frcaseid = frcaseid;
 	}
+
 	public String getFreaid() {
 		return freaid;
 	}
+
 	public void setFreaid(String freaid) {
 		this.freaid = freaid;
 	}
+
 	public String getToloc() {
 		return toloc;
 	}
+
 	public void setToloc(String toloc) {
 		this.toloc = toloc;
 	}
+
 	public String getTolot() {
 		return tolot;
 	}
+
 	public void setTolot(String tolot) {
 		this.tolot = tolot;
 	}
+
 	public String getTopltid() {
 		return topltid;
 	}
+
 	public void setTopltid(String topltid) {
 		this.topltid = topltid;
 	}
+
 	public String getTocaseid() {
 		return tocaseid;
 	}
+
 	public void setTocaseid(String tocaseid) {
 		this.tocaseid = tocaseid;
 	}
+
 	public String getToeaid() {
 		return toeaid;
 	}
+
 	public void setToeaid(String toeaid) {
 		this.toeaid = toeaid;
 	}
+
 	public int getPickqty() {
 		return pickqty;
 	}
+
 	public void setPickqty(int pickqty) {
 		this.pickqty = pickqty;
 	}
+
 	public int getOderqty() {
 		return oderqty;
 	}
+
 	public void setOderqty(int oderqty) {
 		this.oderqty = oderqty;
 	}
+
 	public int getWt() {
 		return wt;
 	}
+
 	public void setWt(int wt) {
 		this.wt = wt;
 	}
+
 	public String getStat() {
 		return stat;
 	}
+
 	public void setStat(String stat) {
 		this.stat = stat;
 	}
+
 	public Date getRgsde() {
 		return rgsde;
 	}
+
 	public void setRgsde(Date rgsde) {
 		this.rgsde = rgsde;
 	}
+
 	public String getRgsusr() {
 		return rgsusr;
 	}
+
 	public void setRgsusr(String rgsusr) {
 		this.rgsusr = rgsusr;
 	}
+
 	public Date getUpdde() {
 		return updde;
 	}
+
 	public void setUpdde(Date updde) {
 		this.updde = updde;
 	}
+
 	public String getUpdusr() {
 		return updusr;
 	}
+
 	public void setUpdusr(String updusr) {
 		this.updusr = updusr;
 	}

@@ -2,7 +2,6 @@ package nwms.oder.domain.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -10,14 +9,9 @@ public class OdOderHdPk implements Serializable {
 
 	private static final long serialVersionUID = 4085460586435727917L;
 
-	@Column(nullable=false, columnDefinition="varchar2(20)")
 	private	String oderno;			//출고번호
-	
-	@Column(nullable=false, columnDefinition="varchar2(40)")
 	private	String dc;				//물류센터
-
-	@Column(nullable=false, columnDefinition="varchar2(40)")
-	private	String biz;			//사업자
+	private	String biz;				//사업자
 
 	//===============================================================================
 	
