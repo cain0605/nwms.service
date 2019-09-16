@@ -22,4 +22,4 @@ server:
     context-path: /
     session:
       timeout: 1800
-  port: 8100
+  port: 9020
